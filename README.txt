@@ -1,0 +1,14 @@
+ ____________________
+| AustiWine          |_________________________________________________
+|                                                                      |
+| AustiWine is a launcher for Austiblox (https://austiblox.net/)       |
+| It's a very simple group of shell scripts that help install and      |
+| launch Austiblox on your system.                                     |
+************************************************************************
+ ____________________
+| Disclaimer         |_________________________________________________
+|                                                                      |
+| I am not responsible if anything bad happens because of this, use    |
+| this at your own risk. This is only tested on Devuan Chimaera,       |
+| however it should work on Debian too.
+************************************************************************
