@@ -5,6 +5,7 @@
 | runs on Wine.                                                        |
 | It's a very simple group of shell scripts that help install and      |
 | launch Austiblox on your Linux (maybe BSD?) system.                  |
+| Only 2014+ clients work.                                             |
 ************************************************************************
  ____________________
 | Disclaimer         |_________________________________________________
