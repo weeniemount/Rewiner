@@ -1,0 +1,18 @@
+#!/bin/sh
+
+getscriptdir()
+{
+        cd "$(dirname "$0")"
+        echo "$PWD"
+}
+
+scriptdir="$(getscriptdir)"
+WINEPREFIX="$scriptdir/wineprefix"
+echo "$WINEPREFIX"
+
+if ! test -f "$WINEPREFIX/AustibloxInstalled"; then
+	xterm -title "Installation logs" -e "$scriptdir/launch" "$*"
+	"$scriptdir/launch" "$*"
+else
+	"$scriptdir/launch" "$*"
+fi

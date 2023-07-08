@@ -1,0 +1,32 @@
+#!/bin/sh
+
+getscriptdir()
+{
+        cd "$(dirname "${0}")"
+        echo "$PWD"
+}
+
+scriptdir="$(getscriptdir)"
+
+if test "$1"; then
+if [ "$1" = "install" ]; then
+echo "\
+[Desktop Entry]
+Name=Austiblox
+Exec="$(echo -n '"'; echo -n "$scriptdir/launch-xdg-wrap"; echo -n '"')" %u
+Icon=xterm
+Type=Application
+Terminal=false
+StartupNotify=false
+MimeType=x-scheme-handler/austiblox;
+" > ~/.local/share/applications/austiblox.desktop
+echo "Installed AustiWine."
+elif [ "$1" = "uninstall" ]; then
+rm ~/.local/share/applications/austiblox.desktop
+echo "Uninstalled Austiwine"
+fi
+else
+echo "Usage: $0 [install/uninstall]"
+fi
+
+#echo "Installed AustiWine."

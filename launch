@@ -1,0 +1,68 @@
+#!/bin/sh
+
+# - Set wine options
+
+getscriptdir()
+{
+        cd "$(dirname "${0}")"
+        echo "$PWD"
+}
+
+scriptdir="$(getscriptdir)"
+
+export WINEARCH=win32
+
+export WINEPREFIX="$scriptdir/wineprefix"
+
+# Use this if you want to use another Wine version/fork/whatever
+export PATH="$HOME/.local/share/grapejuice/user/wine-download/wine-tkg-staging-fsync-git-7.20.r1.gbd2608b1/bin:$PATH"
+
+#export MESA_GL_VERSION_OVERRIDE=4.5
+
+if ! test -f "$WINEPREFIX/AustibloxInstalled"; then
+	# Initialize wineprefix
+	wine cmd /c echo. > /dev/null
+	# Install .NET 4.5
+	winetricks -q dotnet45
+
+	# Code for Austiblox setup, do not use this. ZIP is more reliable
+	# ------------------------
+
+	# Download Austiblox Setup
+	#wget "https://novetus.austiverse.com/Client/Austiblox%20Setup.exe"
+	# Run it
+	#wine "Austiblox Setup.exe"
+	# Delete it
+	#rm "Austiblox Setup.exe"
+
+	# ------------------------ END OF INSTALLER CODE
+
+	# Download Austiblox ZIP and delete it if it already exists
+	rm "AustibloxZIP.zip"
+	wget "https://novetus.austiverse.com/Client/AustibloxZIP.zip"
+	# Extract it
+	unzip AustibloxZIP.zip -d "$WINEPREFIX/drive_c"
+	# Rename it
+	mv "$WINEPREFIX/drive_c/AustibloxZIP" "$WINEPREFIX/drive_c/Austiblox"
+	# Run first installation process exe
+	wine cmd /c "$WINEPREFIX/drive_c/Austiblox/Run me after extracting.bat"
+	# Set variable for the old PWD
+	OLDPWD="$PWD"
+	# Run first install script
+	cd "$WINEPREFIX/drive_c/Austiblox"
+	wine "$(cat "$WINEPREFIX/drive_c/Austiblox/Run me after extracting.bat" | sed 's/start\s*/ /' | cut -c 2-)"
+	# Make a file to indicate Austiblox is installed
+	touch "$WINEPREFIX/AustibloxInstalled"
+
+	exit
+fi
+
+#game="$(echo "$*" | cut -c 13-)"
+
+#winetricks dxvk
+#winetricks comctl32
+#winetricks mfc80
+#wine uninstaller
+#winetricks dxvk
+wine "$WINEPREFIX/drive_c/Austiblox/bin/AustibloxURI.exe" "$*"
+#cat > /dev/null
