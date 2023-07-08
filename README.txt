@@ -1,9 +1,10 @@
  ____________________
 | AustiWine          |_________________________________________________
 |                                                                      |
-| AustiWine is a launcher for Austiblox (https://austiblox.net/)       |
+| AustiWine is a launcher for Austiblox (https://austiblox.net/) so it |
+| runs on Wine.                                                        |
 | It's a very simple group of shell scripts that help install and      |
-| launch Austiblox on your system.                                     |
+| launch Austiblox on your Linux (maybe BSD?) system.                  |
 ************************************************************************
  ____________________
 | Disclaimer         |_________________________________________________
