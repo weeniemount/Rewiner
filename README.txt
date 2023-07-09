@@ -7,7 +7,8 @@
 | It's a very simple group of shell scripts that help install and      |
 | launch Austiblox on your Linux (maybe BSD?) system.                  |
 |                                                                      |
-| Only 2014+ clients work.                                             |
+| Clients below 2014 work BUT you might need to change your X.org      |
+| driver.                                                              |
 |                                                                      |
 | You might also need to run "winetricks --self-update" with sudo/root |
 | to grab the latest version of winetricks directly from the           |
