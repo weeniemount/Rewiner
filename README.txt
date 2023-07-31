@@ -31,4 +31,6 @@
 | including commits before the license change on the same day.         |
 |                                                                      |
 | Versions before are MIT Licensed.                                    |
+|                                                                      |
+| Banner is licensed with CC BY-SA.                                    |
 ************************************************************************
