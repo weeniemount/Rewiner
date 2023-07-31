@@ -11,7 +11,7 @@ WINEPREFIX="$scriptdir/wineprefix"
 echo "$WINEPREFIX"
 
 if ! test -f "$WINEPREFIX/AustibloxInstalled"; then
-	xterm -title "Installation logs" -e "$scriptdir/launch" "$*"
+	"$scriptdir/launch" "$*"
 	"$scriptdir/launch" "$*"
 else
 	"$scriptdir/launch" "$*"
