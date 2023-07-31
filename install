@@ -12,8 +12,8 @@ if test "$1"; then
 if [ "$1" = "install" ]; then
 echo "\
 [Desktop Entry]
-Name=rewinder
-Exec="$(echo -n '"'; echo -n "$scriptdir/launch-xdg-wrap"; echo -n '"')" %u
+Name=Rewinder
+Exec="sh -c $(echo -n '"exec ';echo -n '"'; echo -n "$scriptdir/launch-xdg-wrap"; echo -n '"';echo -n '"')" %u
 Icon=xterm
 Type=Application
 Terminal=false
