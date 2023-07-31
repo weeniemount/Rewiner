@@ -15,7 +15,7 @@ export WINEARCH=win32
 export WINEPREFIX="$scriptdir/wineprefix"
 
 # Use this if you want to use another Wine version/fork/whatever
-#export PATH="$HOME/.local/share/grapejuice/user/wine-download/wine-tkg-staging-fsync-git-7.20.r1.gbd2608b1/bin:$PATH"
+export PATH="$HOME/.local/share/grapejuice/user/wine-download/wine-tkg-staging-fsync-git-7.20.r1.gbd2608b1/bin:$PATH"
 
 #export MESA_GL_VERSION_OVERRIDE=4.5
 
