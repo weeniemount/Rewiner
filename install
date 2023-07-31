@@ -9,22 +9,32 @@ getscriptdir()
 scriptdir="$(getscriptdir)"
 
 if test "$1"; then
-if [ "$1" = "install" ]; then
-echo "\
+	if [ "$1" = "install" ]; then
+		if echo "$scriptdir" | grep -q ' '; then
+			echo "If you have extracted this to a folder with a space, too bad."
+			echo "Sorry, I have found no way to treat folders with spaces in"
+			echo ".desktop files without xdg-open complaining so you have to"
+			echo "extract this to a folder without a space."
+			exit 1
+		else
+			echo "\
 [Desktop Entry]
-Name=Rewinder
-Exec="sh -c $(echo -n '"exec ';echo -n '"'; echo -n "$scriptdir/launch-xdg-wrap"; echo -n '"';echo -n '"')" %u
+Name=Rewiner
+Exec="$scriptdir/launch-xdg-wrap" %u
 Icon=xterm
 Type=Application
 Terminal=false
 StartupNotify=false
 MimeType=x-scheme-handler/austiblox;
-" > ~/.local/share/applications/rewinder.desktop
-echo "Installed Rewiner."
-elif [ "$1" = "uninstall" ]; then
-rm ~/.local/share/applications/rewinder.desktop
-echo "Uninstalled Rewiner."
-fi
+" > ~/.local/share/applications/austiblox.desktop
+			echo "Installed Rewiner."
+		fi
+	elif [ "$1" = "uninstall" ]; then
+		rm ~/.local/share/applications/austiblox.desktop
+		echo "Uninstalled Rewiner"
+	fi
 else
-echo "Usage: $0 [install/uninstall]"
+		echo "Usage: $0 [install/uninstall]"
 fi
+
+
