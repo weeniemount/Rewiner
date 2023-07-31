@@ -6,7 +6,7 @@
 | mostly work out of the box.                                          |
 |                                                                      |
 | It's a very simple group of shell scripts that help install and      |
-| play Rewinder on your Linux (maybe BSD?) system.                    |
+| play Rewinder on your Linux (maybe BSD?) system.                     |
 |                                                                      |
 | Clients below 2014 work BUT you might need to change your X.org      |
 | driver.                                                              |
