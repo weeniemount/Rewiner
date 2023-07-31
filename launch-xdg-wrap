@@ -10,7 +10,7 @@ scriptdir="$(getscriptdir)"
 WINEPREFIX="$scriptdir/wineprefix"
 echo "$WINEPREFIX"
 
-if ! test -f "$WINEPREFIX/AustibloxInstalled"; then
+if ! test -f "$WINEPREFIX/RewinderInstalled"; then
 	"$scriptdir/launch" "$*"
 	"$scriptdir/launch" "$*"
 else
