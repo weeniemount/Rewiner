@@ -25,5 +25,10 @@
  ____________________
 | License            |_________________________________________________
 |                                                                      |
-| License is in the LICENSE file                                       |
+| License is in the LICENSE file.                                      |
+|                                                                      |
+| Versions from (and after) Jul 31, 2023 are LGPLv2.1 licensed,        |
+| including commits before the license change on the same day.         |
+|                                                                      |
+| Versions before are MIT Licensed.                                    |
 ************************************************************************
