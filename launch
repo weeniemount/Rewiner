@@ -9,7 +9,7 @@ getscriptdir()
 }
 
 scriptdir="$(getscriptdir)"
-
+export DXVK_HUD=1
 export WINEARCH=win32
 
 export WINEPREFIX="$scriptdir/wineprefix"
@@ -19,29 +19,53 @@ export WINEPREFIX="$scriptdir/wineprefix"
 
 #export MESA_GL_VERSION_OVERRIDE=4.5
 
-if ! test -f "$WINEPREFIX/AustibloxInstalled"; then
+
+hashtagcat()
+{
+	while IFS= read -r line; do
+		echo "#${line}" || break
+	done;kill -USR1 $yadpid
+}
+
+loadscreen()
+{
+	PLUG="$( od -An -N2 -tu2 /dev/urandom | tr -d ' ')"
+
+	yad --class="rewiner-installer" --name="rewiner-installer" --window-icon="exec" \
+	--center --no-buttons \
+	--title="Rewiner Installer" \
+	--borders=0 \
+	--paned --tab=1 --tab=2 --key=$PLUG \
+	--image "$scriptdir/banner.png" --image-on-top & yadpid="$!"
+
+	yad --borders=0 --tabnum=1 --plug="$PLUG" --text-align=right --no-buttons --title=Rewiner &
+
+	hashtagcat | \
+	(yad --borders=5 \
+	--tabnum=2 --plug="$PLUG" \
+	--text-align=right \
+	--no-buttons \
+	--text='"'"i can fucking m*sturbate to make cheese"'"\n - josephtheguy      ' \
+	--progress --pulsate --auto-close --enable-log=Information \
+	--title=Rewiner)
+
+}
+
+if ! test -f "$WINEPREFIX/RewinderInstalled"; then
+	( \
 	# Initialize wineprefix
 	wine cmd /c echo. > /dev/null
 	# Install .NET 4.5
 	winetricks -q dotnet45
-
-	# Code for Austiblox setup, do not use this. ZIP is more reliable
-	# ------------------------
-
-	# Download Austiblox Setup
-	#wget "https://novetus.austiverse.com/Client/Austiblox%20Setup.exe"
-	# Run it
-	#wine "Austiblox Setup.exe"
-	# Delete it
-	#rm "Austiblox Setup.exe"
-
-	# ------------------------ END OF INSTALLER CODE
-
+	# Install DXVK
+	winetricks -q dxvk
 	# Download Austiblox ZIP and delete it if it already exists
 	rm "AustibloxZIP.zip"
 	wget "https://novetus.austiverse.com/Client/AustibloxZIP.zip"
 	# Extract it
 	unzip AustibloxZIP.zip -d "$WINEPREFIX/drive_c"
+	# Enable sandbox
+	winetricks sandbox
 	# Rename it
 	mv "$WINEPREFIX/drive_c/AustibloxZIP" "$WINEPREFIX/drive_c/Austiblox"
 	# Run first installation process exe
@@ -52,17 +76,9 @@ if ! test -f "$WINEPREFIX/AustibloxInstalled"; then
 	cd "$WINEPREFIX/drive_c/Austiblox"
 	wine "$(cat "$WINEPREFIX/drive_c/Austiblox/Run me after extracting.bat" | sed 's/start\s*/ /' | cut -c 2-)"
 	# Make a file to indicate Austiblox is installed
-	touch "$WINEPREFIX/AustibloxInstalled"
+	touch "$WINEPREFIX/RewinderInstalled" ) 2>&1 | loadscreen
 
 	exit
 fi
 
-#game="$(echo "$*" | cut -c 13-)"
-
-#winetricks dxvk
-#winetricks comctl32
-#winetricks mfc80
-#wine uninstaller
-#winetricks dxvk
 wine "$WINEPREFIX/drive_c/Austiblox/bin/AustibloxURI.exe" "$*"
-#cat > /dev/null
