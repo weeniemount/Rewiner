@@ -1,11 +1,12 @@
  ____________________
-| AustiWine          |_________________________________________________
+| Rewiner            |_________________________________________________
 |                                                                      |
-| AustiWine is a launcher for Austiblox (https://austiblox.net/) so it |
-| runs on Wine.                                                        |
+| Rewiner is a launcher for Rewinder (https://rewinder.fun) that       |
+| associates the austiblox:// protocol and sets everything up to       |
+| mostly work out of the box.                                          |
 |                                                                      |
 | It's a very simple group of shell scripts that help install and      |
-| launch Austiblox on your Linux (maybe BSD?) system.                  |
+| play Rewinder on your Linux (maybe BSD?) system.                    |
 |                                                                      |
 | Clients below 2014 work BUT you might need to change your X.org      |
 | driver.                                                              |
@@ -21,7 +22,6 @@
 | this at your own risk. This is only tested on Devuan Chimaera,       |
 | however it should work on Debian too.                                |
 ************************************************************************
-
  ____________________
 | License            |_________________________________________________
 |                                                                      |
