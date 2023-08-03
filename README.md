@@ -1,7 +1,8 @@
 ballzzzzzzzzzzzzzzzzzzz!!!!!!!!!!!!!@! 
 
+![game](https://raw.githubusercontent.com/idkthegithub/Rewiner/master/wordart%20(2).png)
 
-
+```
 _____________________________________
 | Rewiner - GAMES FOR CHILDREN      |___________________________________
 |                                                                      |
@@ -44,4 +45,5 @@ _____________________________________
 |                                                                      |
 | the zaza                                                             |
 ************************************************************************
+```
 
