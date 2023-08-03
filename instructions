@@ -1,0 +1,5 @@
+#!/bin/sh
+
+echo 'launch the install to install!!!!'
+echo 'launch the launch to launch!!!'
+echo 'launch the launch-xdg-wrap to launch with xdg (i think)!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!'
